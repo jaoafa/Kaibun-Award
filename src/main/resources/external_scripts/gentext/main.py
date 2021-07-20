@@ -88,7 +88,7 @@ if __name__ == '__main__':
     print(json.dumps({
         "generated": False,
         "phase": 3,
-        "message": "文章生成中"
+        "message": "文章生成中 (0 / " + str(generate_count) + ")"
     }))
     if generate_count == 1:
         text = None
@@ -104,6 +104,14 @@ if __name__ == '__main__':
             for i in range(generate_count):
                 futures.append(executor.submit(generate, text_model, args.long_generate))
 
+            generated = 0
+            for f in as_completed(futures):
+                generated += 1
+                print(json.dumps({
+                    "generated": False,
+                    "phase": 3,
+                    "message": "文章生成中 (" + str(generated) + " / " + str(generate_count) + ")"
+                }))
             texts = [f.result() for f in as_completed(futures)]
 
     countFailed = len(list(filter(lambda x: x is None, texts)))
