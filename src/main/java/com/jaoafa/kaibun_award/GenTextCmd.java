@@ -79,15 +79,15 @@ public class GenTextCmd extends ListenerAdapter {
         try {
             object = new JSONObject(str);
         } catch (JSONException e) {
-            hook.editOriginal("[ERROR] `" + str + "`").queue();
+            hook.editOriginal("[ERROR] `" + source + "`: `" + str + "`").queue();
             return;
         }
         if (!object.has("generated")) {
-            hook.editOriginal("[ERROR] `" + object.getString("message") + "`").queue();
+            hook.editOriginal("[ERROR] `" + source + "`: `" + object.getString("message") + "`").queue();
             return;
         }
         if (!object.getBoolean("generated")) {
-            hook.editOriginal("[PROCESSING] `" + object.getString("message") + "` (Phase: " + object.getInt("phase") + " / 4)").queue();
+            hook.editOriginal("[PROCESSING] `" + source + "`: `" + object.getString("message") + "` (Phase: " + object.getInt("phase") + " / 4)").queue();
             return;
         }
 
