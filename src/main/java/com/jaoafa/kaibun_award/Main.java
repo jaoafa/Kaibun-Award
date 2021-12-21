@@ -74,11 +74,11 @@ public class Main {
             );
 
             Objects.requireNonNull(jda
-                .getGuildById(597378876556967936L))
+                    .getGuildById(597378876556967936L))
                 .upsertCommand("gentext", "文章を生成します。")
-                .addOptions(new OptionData(OptionType.STRING, "source", "データソース", false)
+                .addOptions(new OptionData(OptionType.STRING, "source", "データソース", true)
                     .addChoices(choice))
-                .addOptions(new OptionData(OptionType.INTEGER, "count", "いくつ生成するか", false))
+                .addOptions(new OptionData(OptionType.INTEGER, "count", "いくつ生成するか (25個以内推奨)", true))
                 .queue();
 
             Objects.requireNonNull(jda

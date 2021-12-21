@@ -102,7 +102,7 @@ public class GenTextCmd extends ListenerAdapter {
                 label = label.substring(0, 22) + "...";
             }
             menu.addOption(label, String.valueOf(text_id));
-            texts.add((i + 1) + "個目: " + object.getJSONArray("texts").getString(i));
+            texts.add((i + 1) + "個目: " + object.getJSONArray("texts").getString(i).replace("`", "\\`"));
         }
         String result = String.join("\n", texts);
         if (result.length() >= 4096) {
@@ -116,7 +116,10 @@ public class GenTextCmd extends ListenerAdapter {
             .setActionRows(ActionRow.of(
                 menu.build()
             )).build();
-        hook.editOriginal(message).queue();
+        hook.editOriginal(message).queue(
+            null,
+            e -> hook.editOriginal(":warning: 結果の表示に失敗しました: " + e.getMessage() + " (" + e.getClass().getName() + ")").queue()
+        );
     }
 
     int insertGenText(Connection conn, String source, String text) {
