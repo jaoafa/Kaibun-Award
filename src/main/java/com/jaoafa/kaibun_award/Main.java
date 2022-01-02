@@ -52,7 +52,7 @@ public class Main {
                 .setAutoReconnect(true)
                 .setBulkDeleteSplittingEnabled(false)
                 .setContextEnabled(false)
-                .addEventListeners(new GenTextCmd(), new TextRankingCmd())
+                .addEventListeners(new GenTextCmd(), new TextRankingCmd(), new GPT2Cmd())
                 .build()
                 .awaitReady();
 
@@ -69,7 +69,7 @@ public class Main {
             jda.retrieveCommands().queue(
                 s -> s
                     .stream()
-                    .filter(c -> c.getName().equals("gentext") || c.getName().equals("textranking"))
+                    .filter(c -> c.getName().equals("gentext") || c.getName().equals("gpt2") || c.getName().equals("textranking"))
                     .forEach(Command::delete)
             );
 

@@ -37,8 +37,8 @@ if __name__ == '__main__':
         "phase": 4,
         "message": "生成中"
     }))
-    output = model.generate(input, do_sample=True, max_length=150, num_return_sequences=1)
-    text = tokenizer.batch_decode(output)
+    output = model.generate(input, do_sample=True, max_length=200, num_return_sequences=1)
+    text = tokenizer.batch_decode(output)[0]
     after_time = time.time()
     print(json.dumps({
         "generated": True,

@@ -23,19 +23,22 @@ public class GPT2Cmd extends ListenerAdapter {
         if (text == null) return;
         ProcessBuilder builder = new ProcessBuilder();
         builder.command("external_scripts/gpt2/venv/bin/python",
-            "external_scripts/gentext/main.py",
+            "external_scripts/gpt2/main.py",
             "--text",
             text.getAsString());
-        builder.redirectErrorStream(true);
 
-        event.reply("生成中です…しばらくお待ちください。").queue(
+        event.reply("生成中です…しばらくお待ちください。※めちゃめちゃ時間かかります").queue(
             message -> {
                 try {
+                    System.out.println("starting process");
                     Process p = builder.start();
+                    System.out.println("started process");
                     try (InputStream is = p.getInputStream()) {
                         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+                            System.out.println("bufferreader");
                             while (true) {
                                 String line = br.readLine();
+                                System.out.println(line);
                                 if (line == null) {
                                     break;
                                 }
