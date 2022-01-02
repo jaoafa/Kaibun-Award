@@ -82,7 +82,13 @@ public class Main {
                 .queue();
 
             Objects.requireNonNull(jda
-                .getGuildById(597378876556967936L))
+                    .getGuildById(597378876556967936L))
+                .upsertCommand("gpt2", "文章の続きを生成します。")
+                .addOptions(new OptionData(OptionType.STRING, "text", "始まりの文章", true))
+                .queue();
+
+            Objects.requireNonNull(jda
+                    .getGuildById(597378876556967936L))
                 .upsertCommand("textranking", "gentextで生成した文章のランキングを表示します。")
                 .addOptions(new OptionData(OptionType.STRING, "source", "データソース", false)
                     .addChoices(choice))
