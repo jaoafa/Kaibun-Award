@@ -24,8 +24,8 @@ if __name__ == '__main__':
         "phase": 2,
         "message": "モデル準備"
     }))
-    tokenizer = T5Tokenizer.from_pretrained("rinna/japanese-gpt2-medium")
-    model = AutoModelForCausalLM.from_pretrained("rinna/japanese-gpt2-medium")
+    tokenizer = T5Tokenizer.from_pretrained("rinna/japanese-gpt2-small")
+    model = AutoModelForCausalLM.from_pretrained("rrinna/japanese-gpt2-small")
     print(json.dumps({
         "generated": False,
         "phase": 3,
