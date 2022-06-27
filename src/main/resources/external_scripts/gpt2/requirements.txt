@@ -6,7 +6,7 @@ filelock==3.7.1
 huggingface-hub==0.8.1
 idna==3.3
 joblib==1.1.0
-numpy==1.22.0
+numpy==1.23.0
 packaging==21.0
 Pillow==9.1.1
 pip==21.2.4
