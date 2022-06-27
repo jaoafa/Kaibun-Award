@@ -14,7 +14,7 @@ pyparsing==2.4.7
 PyYAML==5.4.1
 regex==2021.8.3
 requests==2.26.0
-sacremoses==0.0.45
+sacremoses==0.0.53
 sentencepiece==0.1.96
 setuptools==57.4.0
 six==1.16.0
