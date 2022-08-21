@@ -16,7 +16,7 @@ regex==2022.8.17
 requests==2.28.1
 sacremoses==0.0.53
 sentencepiece==0.1.97
-setuptools==65.1.0
+setuptools==65.1.1
 six==1.16.0
 tokenizers==0.12.1
 torch==1.12.1
