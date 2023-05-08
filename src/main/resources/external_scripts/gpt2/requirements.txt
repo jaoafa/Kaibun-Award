@@ -19,7 +19,7 @@ sentencepiece==0.1.99
 setuptools==67.7.2
 six==1.16.0
 tokenizers==0.13.3
-torch==2.0.0
+torch==2.0.1
 torchaudio==2.0.1
 torchvision==0.15.1
 tqdm==4.65.0
