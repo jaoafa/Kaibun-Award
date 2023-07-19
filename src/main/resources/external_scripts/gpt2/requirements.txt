@@ -23,7 +23,7 @@ torch==2.0.1
 torchaudio==2.0.2
 torchvision==0.15.2
 tqdm==4.65.0
-transformers==4.30.2
+transformers==4.31.0
 typing-extensions==4.7.1
 urllib3==2.0.3
 argparse==1.4.0
