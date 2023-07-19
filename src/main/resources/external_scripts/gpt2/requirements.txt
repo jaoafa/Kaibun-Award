@@ -25,5 +25,5 @@ torchvision==0.15.2
 tqdm==4.65.0
 transformers==4.31.0
 typing-extensions==4.7.1
-urllib3==2.0.3
+urllib3==2.0.4
 argparse==1.4.0
